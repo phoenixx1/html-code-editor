@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import AceEditor from "react-ace";
-
 import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/theme-kuroir";
 import "ace-builds/src-noconflict/theme-monokai";
@@ -45,12 +44,12 @@ function Editor() {
     console.log(val);
 
     await axios
-      .post("http://localhost:8000/code", val, {})
+      .post("http://localhost:8001/code", val, {})
       .then((res) => console.log(res.statusText))
       .catch((err) => console.log("Error", err));
 
     setRand(rand + 1);
-    await axios.get("http://localhost:8000/code", {});
+    await axios.get("http://localhost:8001/code", {});
   };
 
   const onChange = (newCode) => {
@@ -179,7 +178,7 @@ function Editor() {
             height: "85vh",
             background: "white",
           }}
-          src="http://localhost:8000/"
+          src="http://localhost:8001/"
         ></iframe>
       </CodingSection>
     </EditorContainer>
