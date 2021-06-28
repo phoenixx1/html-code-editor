@@ -44,12 +44,12 @@ function Editor() {
     console.log(val);
 
     await axios
-      .post("http://localhost:8001/code", val, {})
+      .post("https://frontend-editor.herokuapp.com/code", val, {})
       .then((res) => console.log(res.statusText))
       .catch((err) => console.log("Error", err));
 
     setRand(rand + 1);
-    await axios.get("http://localhost:8001/code", {});
+    await axios.get("https://frontend-editor.herokuapp.com/code", {});
   };
 
   const onChange = (newCode) => {
@@ -178,7 +178,7 @@ function Editor() {
             height: "85vh",
             background: "white",
           }}
-          src="http://localhost:8001/"
+          src="https://frontend-editor.herokuapp.com/"
         ></iframe>
       </CodingSection>
     </EditorContainer>
