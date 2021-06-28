@@ -42,14 +42,15 @@ function Editor() {
   const compile = async () => {
     let val = { value: code.replace(/\n/g, "") };
     console.log(val);
-
+    // local host : http://localhost:8001/
+    // replace it on line 48, 53 and 182
     await axios
       .post("https://frontend-editor.herokuapp.com/code", val, {})
       .then((res) => console.log(res.statusText))
       .catch((err) => console.log("Error", err));
 
     setRand(rand + 1);
-    await axios.get("https://frontend-editor.herokuapp.com/code", {});
+    await axios.get("https://frontend-editor.herokuapp.com/", {});
   };
 
   const onChange = (newCode) => {
